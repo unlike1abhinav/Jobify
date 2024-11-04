@@ -1,42 +1,76 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import {HomeLayout,
+import {
+  HomeLayout,
   Register,
   Login,
   DashboardLayout,
   Error,
   Landing,
-  // AddJob,
-  // Admin,
-  // AllJobs,
+  AddJob,
+  Admin,
+  AllJobs,
   // DeleteJob,
   // EditJob,
-  // Profile,
-  // Stats
- } from './pages'
+  Profile,
+  Stats
+} from "./pages";
+
+const checkDefaultTheme = () => {
+  const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
+  document.body.classList.toggle('dark-theme', isDarkTheme);
+  return isDarkTheme
+}
+
+const isDarkThemeEnabled = checkDefaultTheme()
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <HomeLayout/>,
-    errorElement : <Error/>,
-    children : [ 
+    path: "/",
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
       {
-        index : true,
-        element : <Landing/>
+        index: true,
+        element: <Landing />,
       },
       {
-      path: 'register',
-      element: <Register/>,
-    },
-    {
-      path: 'login',
-      element : <Login/>,
-    },
-    {
-      path: 'dashboard',
-      element: <DashboardLayout/>,
-    },]}
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "dashboard",
+        element: <DashboardLayout isDarkThemeEnabled={ isDarkThemeEnabled}/>,
+        children: [
+          {
+            index: true,
+            element: <AddJob />,
+          },
+          {
+            path: "stats",
+            element: <Stats />,
+          },
+          {
+            path: "all-jobs",
+            element: <AllJobs />,
+          },
+
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+          {
+            path: "admin",
+            element: <Admin />,
+          },
+        ],
+      },
+    ],
+  },
 ]);
 
 const App = () => {
