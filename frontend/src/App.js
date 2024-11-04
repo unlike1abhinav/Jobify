@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import {HomeLayout,
-  // Landing,
   Register,
   Login,
   DashboardLayout,
   Error,
+  Landing,
   // AddJob,
   // Admin,
   // AllJobs,
@@ -20,7 +20,12 @@ const router = createBrowserRouter([
     path: '/',
     element: <HomeLayout/>,
     errorElement : <Error/>,
-    children : [ {
+    children : [ 
+      {
+        index : true,
+        element : <Landing/>
+      },
+      {
       path: 'register',
       element: <Register/>,
     },
