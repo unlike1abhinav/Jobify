@@ -3538,7 +3538,7 @@ main.jsx
 ```js
 import axios from 'axios';
 
-const data = await axios.get('/api/v1/test');
+const data = await axios.get('/test');
 console.log(data);
 ```
 

@@ -46,6 +46,9 @@ app.post("/", (req, res) => {
   res.json({ message: "Data received", data: req.body });
 });
 
+app.get('/api/v1/test', (req, res) => {
+  res.json({ msg: 'test route' });
+});
 app.use('/api/v1/jobs', authenticateUser, jobs);
 app.use('/api/v1/users', authenticateUser, user);
 app.use('/api/v1/auth', auth);
