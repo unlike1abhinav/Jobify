@@ -28,15 +28,6 @@ npm run dev
 - remove App.css
 - remove all code in index.css
 
-  App.jsx
-
-```jsx
-const App = () => {
-  return <h1>Jobify App</h1>;
-};
-export default App;
-```
-
 #### Project Assets
 
 - get assets folder from complete project
@@ -53,23 +44,10 @@ export default App;
 - less lines of css
 - speeds up the development
 
-- if any questions about specific styles
-- Coding Addict - [Default Starter Video](https://youtu.be/UDdyGNlQK5w)
-- Repo - [Default Starter Repo](https://github.com/john-smilga/default-starter)
-
 #### Title and Favicon
 
 - add favicon.ico in public
 - change title and favicon in index.html
-
-```html
-<head>
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <title>Jobify</title>
-</head>
-```
-
-- resource [Generate Favicons](https://favicon.io/)
 
 #### Install Packages (Optional)
 
